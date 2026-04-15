@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c8sehft1dfx4u"]
+
+[ext_resource type="Texture2D" uid="uid://cdmaebcwl7vyn" path="res://Map/grass_land/res/ChatGPT Image.png" id="1_0fetl"]
+[ext_resource type="PackedScene" uid="uid://dyobeosjexgj0" path="res://Player/player.tscn" id="2_vc8c6"]
+
+[node name="GrassLand1" type="Node2D" unique_id=1079285488]
+
+[node name="ground_sprite" type="Sprite2D" parent="." unique_id=460761746]
+modulate = Color(0.6784314, 0.6784314, 0.6784314, 1)
+position = Vector2(615, 361)
+texture = ExtResource("1_0fetl")
+
+[node name="Player" parent="." unique_id=697917710 instance=ExtResource("2_vc8c6")]
+position = Vector2(347, 260)
