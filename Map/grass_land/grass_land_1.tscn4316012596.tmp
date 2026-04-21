@@ -6,10 +6,7 @@
 
 [node name="GrassLand1" type="Node2D" unique_id=1079285488]
 
-[node name="ground" type="Parallax2D" parent="." unique_id=601584953]
-repeat_size = Vector2(1536, 1024)
-
-[node name="ground_sprite" type="Sprite2D" parent="ground" unique_id=460761746]
+[node name="ground_sprite" type="Sprite2D" parent="." unique_id=460761746]
 modulate = Color(0.6784314, 0.6784314, 0.6784314, 1)
 position = Vector2(615, 361)
 texture = ExtResource("1_0fetl")
