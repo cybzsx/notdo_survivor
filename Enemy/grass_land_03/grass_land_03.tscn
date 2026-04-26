@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://cc3i20bijv33c" path="res://Enemy/grass_land_03/script/grass_land_03.gd" id="1_7wfn7"]
 [ext_resource type="Texture2D" uid="uid://bc87jhkysi8q6" path="res://Enemy/grass_land_03/ufo_game_enemy.png" id="2_ha7wy"]
 [ext_resource type="PackedScene" uid="uid://cb73vuc06lcyf" path="res://Tools/hurt_box/hurt_box.tscn" id="3_ha7wy"]
+[ext_resource type="PackedScene" uid="uid://bmjclcpf8fcna" path="res://Tools/hit_box/hit_box.tscn" id="4_q8aw7"]
+[ext_resource type="AudioStream" uid="uid://cxwcd0k4d23o8" path="res://Weapon/sword/res/audio/Sword Combo v3.mp3" id="5_yxlq5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7wfn7"]
-radius = 214.7673
+radius = 195.57605
 
 [node name="GrassLand03" type="Node2D" unique_id=524632842]
 scale = Vector2(0.2, 0.2)
@@ -14,13 +16,6 @@ script = ExtResource("1_7wfn7")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=332603313]
 texture = ExtResource("2_ha7wy")
 
-[node name="hitbox" type="Area2D" parent="." unique_id=720017659]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1269291218]
-position = Vector2(4.9999995, -14.999998)
-shape = SubResource("CircleShape2D_7wfn7")
-debug_color = Color(0.9882353, 0, 0.32941177, 0)
-
 [node name="HurtBox" parent="." unique_id=1308849168 instance=ExtResource("3_ha7wy")]
 collision_layer = 0
 
@@ -28,3 +23,15 @@ collision_layer = 0
 position = Vector2(4.9999995, -14.999998)
 shape = SubResource("CircleShape2D_7wfn7")
 debug_color = Color(0.9882353, 0, 0.32941177, 0)
+
+[node name="HitBox" parent="." unique_id=459523623 instance=ExtResource("4_q8aw7")]
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=129515006]
+position = Vector2(4.9999995, -14.999998)
+shape = SubResource("CircleShape2D_7wfn7")
+debug_color = Color(0, 0.6313726, 0.4862745, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1509943721]
+stream = ExtResource("5_yxlq5")

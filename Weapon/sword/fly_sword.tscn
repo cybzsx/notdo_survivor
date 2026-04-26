@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bqmnrhu3xi2ui"]
+
+[ext_resource type="Script" uid="uid://cwxjcy23lso24" path="res://Weapon/sword/script/fly_sword.gd" id="1_todrp"]
+[ext_resource type="Texture2D" uid="uid://2oypr6hrag0" path="res://Weapon/sword/res/Sword00.png" id="1_vif3q"]
+[ext_resource type="PackedScene" uid="uid://cb73vuc06lcyf" path="res://Tools/hurt_box/hurt_box.tscn" id="2_by5vw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_todrp"]
+radius = 2.0
+height = 37.999935
+
+[node name="FlySword" type="Node2D" unique_id=425367502]
+scale = Vector2(2, 2)
+script = ExtResource("1_todrp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=967859325]
+texture = ExtResource("1_vif3q")
+
+[node name="HurtBox" parent="." unique_id=1308849168 instance=ExtResource("2_by5vw")]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1902378140]
+rotation = -1.5688868
+shape = SubResource("CapsuleShape2D_todrp")
+debug_color = Color(0, 0.6, 0.69803923, 0)

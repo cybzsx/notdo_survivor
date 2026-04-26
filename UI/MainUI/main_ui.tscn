@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://d1gph76cn0y6q"]
+
+[ext_resource type="Texture2D" uid="uid://cd3dvdegx4roc" path="res://res/img/bg/bg1.jpg" id="1_1yvig"]
+[ext_resource type="Script" uid="uid://cde8xsekjdguq" path="res://UI/MainUI/script/main_ui.gd" id="1_g3lw5"]
+[ext_resource type="FontFile" uid="uid://ekesunr03wwu" path="res://res/font/Marker.ttf" id="2_1yvig"]
+[ext_resource type="Texture2D" uid="uid://d4b4iwtbkjxkh" path="res://res/img/partical/part_01.png" id="3_ky12q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky12q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1yvig"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4yaab"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0e8e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g3lw5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h6lqs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5wakv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70avc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4hoyo"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g3lw5"]
+lifetime_randomness = 0.62
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(600, 250, 0)
+emission_shape = 3
+emission_box_extents = Vector3(800, 500, 1)
+angle_min = 45.00001
+angle_max = 45.00001
+direction = Vector3(-0.5, 0.5, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 98, 0)
+
+[node name="MainUi" type="Node2D" unique_id=2142046955]
+script = ExtResource("1_g3lw5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=761746349]
+position = Vector2(576.00006, 321)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_1yvig")
+
+[node name="button" type="Node" parent="." unique_id=1291428354]
+
+[node name="game_button" type="Button" parent="button" unique_id=1124476872]
+offset_left = 482.0
+offset_top = 418.0
+offset_right = 679.0
+offset_bottom = 490.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_1yvig")
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ky12q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1yvig")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4yaab")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o0e8e")
+text = "start game"
+
+[node name="exit_button" type="Button" parent="button" unique_id=1384894549]
+offset_left = 489.0
+offset_top = 497.0
+offset_right = 665.0
+offset_bottom = 555.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_1yvig")
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g3lw5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h6lqs")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5wakv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_70avc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4hoyo")
+text = "exit game"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1501871334]
+modulate = Color(0.7848263, 0.25829318, 0.2641284, 0.5529412)
+amount = 30
+texture = ExtResource("3_ky12q")
+lifetime = 4.5
+speed_scale = 1.46
+randomness = 0.09
+process_material = SubResource("ParticleProcessMaterial_g3lw5")
+
+[connection signal="pressed" from="button/game_button" to="." method="_on_game_button_pressed"]
+[connection signal="pressed" from="button/exit_button" to="." method="_on_exit_button_pressed"]

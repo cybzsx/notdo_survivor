@@ -3,8 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bmt3bo2vhhfnm" path="res://Player/res/idle/PlWarriorIdle00.png" id="1_fhl08"]
 [ext_resource type="Script" uid="uid://ceq63wlyhwpoi" path="res://Player/script/player.gd" id="1_vtle1"]
 [ext_resource type="Texture2D" uid="uid://b5yhdsw5doefb" path="res://Player/res/die/PlWarriorDie00.png" id="2_apopc"]
+[ext_resource type="PackedScene" uid="uid://bqmnrhu3xi2ui" path="res://Weapon/sword/fly_sword.tscn" id="2_p5o4e"]
 [ext_resource type="Texture2D" uid="uid://dfhaxhy8yqyv" path="res://Player/res/idle/PlWarriorIdle01.png" id="2_vtle1"]
 [ext_resource type="Texture2D" uid="uid://b8tu4jtwcwad7" path="res://Player/res/die/PlWarriorDie01.png" id="3_5htga"]
+[ext_resource type="PackedScene" uid="uid://b28i3m1al5jov" path="res://Weapon/sword_2/sword_2.tscn" id="3_gu6f8"]
 [ext_resource type="Texture2D" uid="uid://c3jyj0r02t1o8" path="res://Player/res/walk/PlWarriorMove00.png" id="3_od3ui"]
 [ext_resource type="Texture2D" uid="uid://c2ywdwu3lcvjv" path="res://Player/res/walk/PlWarriorMove01.png" id="4_00tjw"]
 [ext_resource type="Texture2D" uid="uid://beovi2iqstw4r" path="res://Player/res/die/PlWarriorDie02.png" id="4_p5o4e"]
@@ -60,9 +62,15 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vtle1"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gu6f8"]
+radius = 216.00232
+
 [node name="Player" type="CharacterBody2D" unique_id=1691181977]
 scale = Vector2(3, 3)
 script = ExtResource("1_vtle1")
+fly_sword_scene = ExtResource("2_p5o4e")
+max_sword_count = 6
+arrow_sword_scene = ExtResource("3_gu6f8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1141401787]
 sprite_frames = SubResource("SpriteFrames_5htga")
@@ -100,3 +108,13 @@ texture = ExtResource("12_5htga")
 position = Vector2(12.333331, -25.333332)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("12_5htga")
+
+[node name="check" type="Node2D" parent="." unique_id=1304077466]
+
+[node name="checkArea2D" type="Area2D" parent="check" unique_id=2045119413]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="check/checkArea2D" unique_id=98508533]
+shape = SubResource("CircleShape2D_gu6f8")
+debug_color = Color(0, 0.6431373, 0.30588236, 0)

@@ -15,7 +15,62 @@ position = Vector2(615, 361)
 texture = ExtResource("1_0fetl")
 
 [node name="Player" parent="." unique_id=697917710 instance=ExtResource("2_vc8c6")]
-position = Vector2(347, 260)
+position = Vector2(1395, 863)
 
-[node name="GrassLand03" parent="." unique_id=524632842 instance=ExtResource("3_vc8c6")]
-position = Vector2(552.99994, 290.99997)
+[node name="enemy" type="Node2D" parent="." unique_id=1054738427]
+
+[node name="GrassLand03" parent="enemy" unique_id=524632842 instance=ExtResource("3_vc8c6")]
+position = Vector2(1709, 1070.9999)
+
+[node name="GrassLand04" parent="enemy" unique_id=1888497065 instance=ExtResource("3_vc8c6")]
+position = Vector2(1067, 1081)
+
+[node name="GrassLand05" parent="enemy" unique_id=1968680723 instance=ExtResource("3_vc8c6")]
+position = Vector2(1295, 423)
+
+[node name="GrassLand06" parent="enemy" unique_id=1422317557 instance=ExtResource("3_vc8c6")]
+position = Vector2(1884, 1237.9999)
+
+[node name="GrassLand07" parent="enemy" unique_id=562964506 instance=ExtResource("3_vc8c6")]
+position = Vector2(1242, 1248)
+
+[node name="GrassLand08" parent="enemy" unique_id=1312308451 instance=ExtResource("3_vc8c6")]
+position = Vector2(1470, 590)
+
+[node name="GrassLand09" parent="enemy" unique_id=1111707068 instance=ExtResource("3_vc8c6")]
+position = Vector2(1517, 1222.9999)
+
+[node name="GrassLand10" parent="enemy" unique_id=385388617 instance=ExtResource("3_vc8c6")]
+position = Vector2(875, 1233)
+
+[node name="GrassLand11" parent="enemy" unique_id=19510011 instance=ExtResource("3_vc8c6")]
+position = Vector2(1103, 575)
+
+[node name="enemy2" type="Node2D" parent="." unique_id=1136943676]
+
+[node name="GrassLand03" parent="enemy2" unique_id=317627690 instance=ExtResource("3_vc8c6")]
+position = Vector2(496.00003, 406.9999)
+
+[node name="GrassLand04" parent="enemy2" unique_id=1444017149 instance=ExtResource("3_vc8c6")]
+position = Vector2(-145.99997, 417.00003)
+
+[node name="GrassLand05" parent="enemy2" unique_id=1147861205 instance=ExtResource("3_vc8c6")]
+position = Vector2(82.00003, -240.99995)
+
+[node name="GrassLand06" parent="enemy2" unique_id=1939187769 instance=ExtResource("3_vc8c6")]
+position = Vector2(2747, 1703.9998)
+
+[node name="GrassLand07" parent="enemy2" unique_id=1615893309 instance=ExtResource("3_vc8c6")]
+position = Vector2(2105, 1714)
+
+[node name="GrassLand08" parent="enemy2" unique_id=1453209488 instance=ExtResource("3_vc8c6")]
+position = Vector2(2333, 1056)
+
+[node name="GrassLand09" parent="enemy2" unique_id=632605778 instance=ExtResource("3_vc8c6")]
+position = Vector2(492, 1849.9998)
+
+[node name="GrassLand10" parent="enemy2" unique_id=1283169569 instance=ExtResource("3_vc8c6")]
+position = Vector2(-149.99998, 1860)
+
+[node name="GrassLand11" parent="enemy2" unique_id=609517825 instance=ExtResource("3_vc8c6")]
+position = Vector2(77.999985, 1202)

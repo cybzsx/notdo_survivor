@@ -26,6 +26,9 @@ signal player_destroy
 
 @onready var healthy: Node2D = $healthy   # simple healthy ui container three heart
 
+@onready var check_area_2d: Area2D = $check/checkArea2D
+
+
 
 
 
@@ -60,6 +63,13 @@ const DIR_4 =	[ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 
 
 
+	# fly sword part
+@export var fly_sword_scene: PackedScene
+@export var max_sword_count: int = 8
+
+var sword_count := 0
+
+@export var arrow_sword_scene: PackedScene
 
 
 	#endregion
@@ -118,6 +128,16 @@ func _process(delta: float) -> void:
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")	
 
 
+		# summon sword by "attack"
+	if Input.is_action_just_pressed("attack"):
+		summon_fly_sword()
+		# summon sword by "attack"
+	if Input.is_action_just_pressed("reject"):
+		summon_reject_sword()
+
+
+
+
 
 
 
@@ -144,6 +164,83 @@ func _physics_process(delta: float) -> void:
 	if input_dir != Vector2.ZERO:
 		update_facing(input_dir)
 		
+		
+		
+		
+func summon_fly_sword():
+
+	# 防止一直按住狂刷
+	if Input.is_action_just_pressed("ui_accept") == false:
+		pass
+
+	if sword_count >= max_sword_count:
+		return
+
+	if fly_sword_scene == null:
+		return
+
+	var sword = fly_sword_scene.instantiate()
+
+	get_parent().add_child(sword)
+
+	sword.global_position = global_position
+
+	# 随机旋转角度
+	sword.angle = randf() * TAU
+
+	sword_count += 1
+	
+	
+	
+	
+
+# -----------------------------------------
+# 发射飞剑
+# -----------------------------------------
+func summon_reject_sword():
+
+	if arrow_sword_scene == null:
+		return
+
+	var target = get_nearest_enemy()
+
+	if target == null:
+		return
+
+	var sword = arrow_sword_scene.instantiate()
+
+	get_parent().add_child(sword)
+	sword.global_position = global_position
+
+	# 朝敌人初始化
+	if sword.has_method("setup_target"):
+	
+		sword.setup_target(target)
+
+
+# -----------------------------------------
+# 获取最近敌人
+# -----------------------------------------
+func get_nearest_enemy():
+
+	var areas = check_area_2d.get_overlapping_areas()
+
+	var nearest = null
+	var nearest_dist = INF
+
+	for area in areas:
+
+		var enemy = area.get_parent()
+
+		if enemy.is_in_group("Enemy"):
+
+			var dis = global_position.distance_to(enemy.global_position)
+
+			if dis < nearest_dist:
+				nearest_dist = dis
+				nearest = enemy
+	#print(nearest)
+	return nearest
 		
 		
 	#endregion
@@ -215,7 +312,8 @@ func _player_destroy():
 	
 	await sprite.animation_finished
 	
-	self.queue_free()
+	Scenemanager.transition_to_scene("main_ui")
+	#self.queue_free()
 	
 	
 func hit_flash():

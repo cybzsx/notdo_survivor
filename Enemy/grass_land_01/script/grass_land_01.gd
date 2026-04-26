@@ -2,7 +2,7 @@
 # UFO敌人（类幸存者游戏）
 # 玩家已加入 "Player" 组
 
-class_name Grass_Land_03
+class_name Grass_Land_01
 extends Node2D
 
 # ========= 基础属性 =========
@@ -29,10 +29,10 @@ var dead: bool = false
 
 func _ready() -> void:
 	
-	
+	$AnimatedSprite2D.play("idle")
 	add_to_group("Enemy");
 	hp = max_hp
-	find_player()
+	#find_player()
 
 	# 监听碰撞玩家
 	#if hitbox:
@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if !is_instance_valid(player):
-		find_player()
+		#find_player()
 		return
 
 	# 朝玩家移动  

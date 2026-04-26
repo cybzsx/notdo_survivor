@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b28i3m1al5jov"]
+
+[ext_resource type="Texture2D" uid="uid://bysj1kr0psc4b" path="res://Weapon/sword/res/Sword02.png" id="1_68vqh"]
+[ext_resource type="Script" uid="uid://gshlpaxltlh2" path="res://Weapon/sword_2/script/sword_2.gd" id="1_70l2f"]
+[ext_resource type="PackedScene" uid="uid://cb73vuc06lcyf" path="res://Tools/hurt_box/hurt_box.tscn" id="2_ums76"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_70l2f"]
+radius = 2.0
+height = 74.00369
+
+[node name="Sword2" type="Node2D" unique_id=2115863049]
+scale = Vector2(2, 2)
+script = ExtResource("1_70l2f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=521336674]
+texture = ExtResource("1_68vqh")
+
+[node name="HurtBox" parent="." unique_id=1308849168 instance=ExtResource("2_ums76")]
+collision_layer = 0
+collision_mask = 512
+damage = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=894915304]
+rotation = -1.5688868
+shape = SubResource("CapsuleShape2D_70l2f")
+debug_color = Color(0, 0.6, 0.69803923, 0)
